@@ -276,6 +276,17 @@
   \vspace{0.4em}
 }
 
+
+\newcommand{\educationentry}[5]{%
+  \par\noindent
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xr@{}}
+    \textbf{#1} & \mbox{#2} \\[-0.1em]
+    \multicolumn{2}{@{}l@{}}{#3} \\[-0.1em]
+    \multicolumn{2}{@{}X@{}}{#4} \\[-0.1em]
+    \multicolumn{2}{@{}X@{}}{#5}
+  \end{tabularx}
+  \par\vspace{0.35em}
+}
 %----------------------------------------------------------------------------------------
 % HEADER AND FOOTER
 %----------------------------------------------------------------------------------------
