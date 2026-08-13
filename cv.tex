@@ -214,15 +214,24 @@
   \end{minipage}
 }
 
-% Research experience heading.
+% Research experience heading
 % #1 = project title
 % #2 = institution
 % #3 = advisor
 % #4 = dates
-\newcommand{\researchentry}[4]{%
+% #5 = research output icons/links
+\newcommand{\researchentry}[5]{%
   \Needspace{8\baselineskip}%
   \par\noindent
-  \textbf{#1}\par\nobreak
+
+  % Project title followed by optional research-output icons
+  \textbf{#1}%
+  \if\relax\detokenize{#5}\relax
+  \else
+    \hspace{0.3em}{\normalfont #5}%
+  \fi
+  \par\nobreak
+
   \vspace{-0.15em}
 
   \noindent
@@ -340,6 +349,25 @@
 % Suppress header and footer rules.
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+
+%----------------------------------------------------------------------------------------
+% RESEARCH OUTPUT LINKS
+%----------------------------------------------------------------------------------------
+
+% GitHub repository
+\newcommand{\githubrepo}[1]{%
+  \href{#1}{\textcolor{black}{\faGithub}}%
+}
+
+% Refereed paper / publication
+\newcommand{\paperlink}[1]{%
+  \href{#1}{\textcolor{black}{\faFile}}%
+}
+
+% Thesis
+\newcommand{\thesislink}[1]{%
+  \href{#1}{\textcolor{black}{\faBook}}%
+}
 
 %----------------------------------------------------------------------------------------
 % DOCUMENT
