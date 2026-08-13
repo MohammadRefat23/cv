@@ -1,0 +1,19 @@
+name: Trigger Website CV Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger website deployment
+        env:
+          GH_TOKEN: ${{ secrets.WEBSITE_ACTION_TOKEN }}
+        run: |
+          gh workflow run deploy.yml \
+            --repo MohammadRefat23/MohammadRefat23.github.io \
+            --ref main
