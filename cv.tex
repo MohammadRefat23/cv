@@ -67,36 +67,57 @@
 \usepackage{needspace}
 
 %----------------------------------------------------------------------------------------
-% BIBLIOGRAPHY PACKAGES AND BASE OPTIONS
+% BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
-% Author-year bibliography used for publications and the master's thesis.
+
 \usepackage[
   style=authoryear,
   sorting=ynt,
   minbibnames=3,
   maxbibnames=3,
+  giveninits=true,
+  uniquename=init,
   doi=true,
   url=false,
   isbn=false,
-  eprint=false
+  eprint=false,
+  date=year
 ]{biblatex}
 
-% Remove bibliography fields that are unnecessary on the CV.
+%----------------------------------------------------------------------------------------
+% CLEAN CV-STYLE BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+% Remove fields that add clutter to a CV citation.
 \AtEveryBibitem{%
   \clearfield{issn}%
+  \clearfield{publisher}%
   \clearfield{urlyear}%
+  \clearfield{month}%
 }
 
-% Make thesis titles clickable when a URL is present in the .bib entry.
+% Don't print "In:" before journal titles.
+\renewbibmacro{in:}{}
+
+% Paper and thesis titles.
+\DeclareFieldFormat[article]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[thesis]{title}{%
   \iffieldundef{url}
     {\mkbibquote{#1}}
     {\href{\thefield{url}}{\mkbibquote{#1}}}%
 }
 
-% Initial bibliography item spacing; the final CV spacing is set below.
-\setlength{\bibitemsep}{0.25em}
+% Italicize journal names normally.
+\DeclareFieldFormat[article]{journaltitle}{\mkbibemph{#1}}
 
+% Make DOI compact and clickable instead of printing the full doi.org URL.
+\DeclareFieldFormat{doi}{%
+  \href{https://doi.org/#1}{\textsc{doi}}%
+}
+
+% Compact spacing between entries.
+\setlength{\bibitemsep}{0.45em}
+\setlength{\bibparsep}{0pt}
 %----------------------------------------------------------------------------------------
 % HYPERLINKS
 %----------------------------------------------------------------------------------------
@@ -241,7 +262,7 @@
     \textit{Advisor: #3} &
   \end{tabularx}
 
-  \par\vspace{-0.45em}
+  \par\vspace{-0.4em}
 }
 
 % Presentation entry.
@@ -259,7 +280,7 @@
       {\small\textit{#2} \enspace---\enspace #3}%
     }
   \end{tabularx}
-  \par\vspace{0.3em}
+  \par\vspace{0.1em}
 }
 {}
 
@@ -384,15 +405,16 @@
 \begin{tabularx}{\linewidth}{@{}C@{}}
   \Huge{Mohammad Refat} \\[7.5pt]
 
-  \href{https://github.com/MohammadRefat23}
-    {\raisebox{-0.05\height}\faGithub\ MohammadRefat23}
-  \ $|$ \
-  \href{https://www.linkedin.com/in/mohammad-refat/}
-    {\raisebox{-0.05\height}\faLinkedin\ LinkedIn}
-  \ $|$ \
+  \small
   \href{https://mohammadrefat23.github.io/}
     {\raisebox{-0.05\height}\faGlobe\ Website}
-  \ $|$ \
+  \quad\textbar\quad
+\href{https://scholar.google.com/citations?user=tXosG1EAAAAJ}
+  {\raisebox{-0.05\height}\faGraduationCap\ Scholar}
+  \quad\textbar\quad
+  \href{https://github.com/MohammadRefat23}
+    {\raisebox{-0.05\height}\faGithub\ GitHub}
+  \quad\textbar\quad
   \href{mailto:moref17@gmail.com}
     {\raisebox{-0.05\height}\faEnvelope\ moref17@gmail.com}
   \\
