@@ -243,7 +243,7 @@
 % #2 = institution
 % #3 = advisor
 % #4 = dates
-% #5 = research output icons/links
+% #5 = optional research-output links
 \newcommand{\researchentry}[5]{%
   \Needspace{8\baselineskip}%
   \par\noindent
@@ -378,21 +378,17 @@
 % RESEARCH OUTPUT LINKS
 %----------------------------------------------------------------------------------------
 
-% GitHub repository
-\newcommand{\githubrepo}[1]{%
-  \href{#1}{\textcolor{black}{\faGithub}}%
+% Compact labeled link used beside research-project titles
+\newcommand{\researchlink}[2]{%
+  \href{#2}{%
+    \textcolor{linkcolour}{\footnotesize[\textnormal{#1}]}%
+  }%
 }
 
-% Refereed paper / publication
-\newcommand{\paperlink}[1]{%
-  \href{#1}{\textcolor{black}{\faFile}}%
-}
-
-% Thesis
-\newcommand{\thesislink}[1]{%
-  \href{#1}{\textcolor{black}{\faBook}}%
-}
-
+% Research-output links
+\newcommand{\githubrepo}[1]{\researchlink{Code}{#1}}
+\newcommand{\paperlink}[1]{\researchlink{Paper}{#1}}
+\newcommand{\thesislink}[1]{\researchlink{Thesis}{#1}}
 %----------------------------------------------------------------------------------------
 % DOCUMENT
 %----------------------------------------------------------------------------------------
