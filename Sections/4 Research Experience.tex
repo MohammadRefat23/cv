@@ -7,7 +7,7 @@
 \researchentry
   {Starspot Inference with Light Curve Inversion Techniques}
   {American Museum of Natural History}
-  {Dr. Lucy Lu}
+  {Dr. Lucy Lu \enspace\textbar\enspace \textit{M.S. Thesis Researcher}}
   {Aug 2023 -- Sep 2025}
   {\thesislink{https://academicworks.cuny.edu/gc_etds/6480/}}
 \begin{itemize}[
@@ -18,16 +18,17 @@
   parsep=0pt,
   partopsep=0pt
 ]
-  \item Analyzed 1,000 synthetic evolving starspot light curves
-  using \texttt{butterpy} and implemented inversion workflows with
-  \texttt{starry} and \texttt{fleck}.
+  \item Analyzed 1,000 synthetic, evolving starspot light curves generated
+  with \texttt{butterpy} and implemented forward- and inverse-modeling
+  workflows with \texttt{fleck} and \texttt{starry}.
 
-  \item Applied time-series analysis to evaluate recovery of stellar rotation, activity, and surface structure across changes in noise, viewing inclination, and spot
-  configuration.
+  \item Evaluated recovery of stellar rotation, activity indicators, and
+  surface structure across variations in photometric noise, viewing
+  inclination, and spot configuration.
 
-  \item Demonstrated that light-curve inversion reliably recovered rotation
-  and statistical indicators of activity, while individual starspot
-  locations and surface maps remained fundamentally degenerate.
+  \item Demonstrated that rotation and statistical activity indicators could
+  be recovered reliably, while individual starspot locations and surface
+  maps remained fundamentally degenerate.
 \end{itemize}
 
 \vspace{0.4em}
@@ -35,7 +36,7 @@
 \researchentry
   {Towards Mapping Brown Dwarf and Giant Exoplanet Atmospheres}
   {American Museum of Natural History}
-  {Dr. Johanna Vos}
+  {Dr. Johanna Vos \enspace\textbar\enspace \textit{BDNYC Researcher}}
   {May 2021 -- Aug 2023}
   {\githubrepo{https://github.com/MohammadRefat23/StarryAtmospheres}}
 
@@ -48,9 +49,17 @@
   partopsep=0pt
 ]
 
-\item Analyzed time-domain photometry of brown dwarfs and directly imaged giant exoplanets to characterize rotational variability and evolving cloud structures.
+\item Modeled three-dimensional atmospheric simulations and 20-hour
+Spitzer light curves of two isolated planetary-mass objects using
+\texttt{starry} spherical-harmonic surface maps.
 
-\item Developed Python workflows combining light-curve processing, rotational phase analysis, statistical modeling, and spherical-harmonic surface mapping to investigate how heterogeneous clouds produce observed photometric variability.
+\item Compared surface maps with spherical-harmonic degrees $l=1$, 5, and
+10, identifying $l=5$ as sufficient to reproduce the relevant light-curve
+structure without unnecessary map complexity.
+
+\item Recovered the overall light-curve morphology of 2M0030 and showed that
+time evolution limited a single static-map fit to 2M0642, motivating
+rotation-by-rotation atmospheric mapping.
 
 \end{itemize}
 
@@ -59,7 +68,7 @@
 \researchentry
   {Chemodynamically Characterizing the Jhelum Stellar Stream with APOGEE-2}
   {Sloan Digital Sky Survey Faculty and Student Team}
-  {Dr. Allyson Sheffield}
+  {Dr. Allyson Sheffield \enspace\textbar\enspace \textit{SDSS FAST Student Researcher}}
   {May 2020 -- May 2021}
   {%
     \githubrepo{https://github.com/MohammadRefat23/jhelum-stellar-stream}
@@ -75,11 +84,17 @@
   parsep=0pt,
   partopsep=0pt
 ]
-\item Investigated the chemical and dynamical properties of the Jhelum stellar stream using APOGEE-2 spectroscopy and Gaia astrometry.
+\item Analyzed 1,495 APOGEE-2 targets, selecting 289 red giants and combining
+Gaia astrometry, stellar kinematics, and chemical abundances to identify
+eight candidate Jhelum stream members.
 
-\item Combined chemical-abundance measurements with stellar positions and kinematics to identify and characterize candidate stream members.
+\item Identified one new metal-poor red-giant-branch member
+($[\mathrm{Fe}/\mathrm{H}]=-2.2$) and compared its abundance and orbital
+patterns with candidate Gaia--Enceladus--Sausage stars.
 
-\item Contributed spectroscopic analysis and candidate identification to a peer-reviewed publication in The Astrophysical Journal.
+\item Coauthored a peer-reviewed article in \textit{The Astrophysical Journal}
+finding that the member's abundances were consistent with an accreted
+dwarf-galaxy progenitor, while not excluding a globular-cluster origin.
 \end{itemize}
 
 \vspace{0.4em}
@@ -87,7 +102,7 @@
 \researchentry
   {Looking at Star Formation Through Chemistry}
   {American Museum of Natural History}
-  {Dr. Allyson Sheffield}
+  {Dr. Allyson Sheffield \enspace\textbar\enspace \textit{AstroCom NYC Scholar}}
   {Aug 2018 -- May 2020}
   {}
 
@@ -99,9 +114,18 @@
   parsep=0pt,
   partopsep=0pt
 ]
-\item Analyzed high-resolution stellar spectra to investigate the chemical compositions and formation histories of Galactic stellar populations.
+\item Processed and normalized high-resolution echelle spectra with
+\texttt{SMHr}, measured absorption-line equivalent widths, and iteratively
+fit stellar atmospheric parameters and elemental abundances.
 
-\item Processed and normalized echelle spectra, measured spectral-line equivalent widths, and used them to derive quantitative elemental abundances.
+\item Validated the workflow on Arcturus, recovering
+$T_{\mathrm{eff}}=4300\,\mathrm{K}$, $\log g=1.6$, and
+$[\mathrm{Fe}/\mathrm{H}]=-0.65$---within 50 K and 0.07 dex of published
+values.
+
+\item Established a proof-of-concept chemical-tagging workflow for
+distinguishing in-situ, kicked-out, and accreted formation scenarios for
+Galactic red-giant populations.
 \end{itemize}
 
 \vspace{0.4em}
@@ -109,7 +133,7 @@
 \researchentry
   {Two-Point Statistics in the Star-Forming Interstellar Medium}
   {Flatiron Institute, Center for Computational Astrophysics}
-  {Dr. Chang-Goo Kim}
+  {Dr. Chang-Goo Kim \enspace\textbar\enspace \textit{AstroCom NYC Scholar}}
   {Jun 2018 -- Aug 2018}
   {\githubrepo{https://github.com/MohammadRefat23/tigress-metallicity-correlations}}
 
@@ -121,7 +145,15 @@
   parsep=0pt,
   partopsep=0pt
 ]
-\item Applied two-point statistical methods to numerical simulations of the star-forming interstellar medium to characterize the spatial distribution of metallicity.
+\item Developed Python routines to compute and visualize two-point
+metallicity correlations in TIGRESS magnetohydrodynamic simulations of the
+star-forming interstellar medium.
 
-\item Developed Python routines to compute and visualize metallicity correlation statistics and investigate the spatial scales of chemical structure in simulated star-forming gas.
+\item Measured a characteristic half-correlation length of
+$120\pm25\,\mathrm{pc}$ and estimated a turbulent metal-mixing timescale of
+$\sim10\,\mathrm{Myr}$.
+
+\item Found no direct relationship between the measured correlation length
+and either the supernova rate or gas velocity dispersion, constraining the
+drivers of chemical inhomogeneity in the simulated gas.
 \end{itemize}
