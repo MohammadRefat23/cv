@@ -241,18 +241,19 @@
 % Research experience heading
 % #1 = project title
 % #2 = institution
-% #3 = advisor
-% #4 = dates
-% #5 = optional research-output links
-\newcommand{\researchentry}[5]{%
+% #3 = role (may be empty)
+% #4 = advisor
+% #5 = dates
+% #6 = optional research-output links
+\newcommand{\researchentry}[6]{%
   \Needspace{8\baselineskip}%
   \par\noindent
 
   % Project title followed by optional research-output icons
   \textbf{#1}%
-  \if\relax\detokenize{#5}\relax
+  \if\relax\detokenize{#6}\relax
   \else
-    \hspace{0.3em}{\normalfont #5}%
+    \hspace{0.3em}{\normalfont #6}%
   \fi
   \par\nobreak
 
@@ -261,26 +262,32 @@
   \noindent
   \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X
                                   >{\raggedleft\arraybackslash}l@{}}
-    \textit{#2} & \mbox{\textit{#4}} \\[-0.15em]
-    \textit{Advisor: #3} &
+    \textit{#2} & \mbox{\textit{#5}} \\[-0.15em]
+    \multicolumn{2}{@{}X@{}}{%
+      \textit{\ifstrempty{#3}{}{#3\enspace\textbar\enspace}Advisor: #4}%
+    }
   \end{tabularx}
 
   \par\vspace{-0.4em}
 }
 
 % Presentation entry.
-% #1 = title
-% #2 = venue
-% #3 = location/type
-% #4 = date
-\newenvironment{presentation}[4]
+% #1 = optional verified author list or explicitly labeled speaker credit
+% #2 = title
+% #3 = venue
+% #4 = location/type
+% #5 = date
+\newenvironment{presentation}[5][]
 {%
-  \Needspace{4\baselineskip}%
+  \Needspace{5\baselineskip}%
   \par\noindent
   \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xr@{}}
-    \textbf{#1} & \mbox{#4} \\[-0.1em]
+    \textbf{#2} & \mbox{#5} \\[-0.1em]
+    \ifstrempty{#1}{}{%
+      \multicolumn{2}{@{}X@{}}{{\small #1}} \\[-0.1em]
+    }%
     \multicolumn{2}{@{}X@{}}{%
-      {\small\textit{#2} \enspace---\enspace #3}%
+      {\small\textit{#3} \enspace---\enspace #4}%
     }
   \end{tabularx}
   \par\vspace{0.1em}
@@ -423,14 +430,15 @@
 % SECTIONS
 %----------------------------------------------------------------------------------------
 
-\input{Sections/1 Research Interests}
-\input{Sections/2 Experience}
+% Research-first ordering for PhD applications.
 \input{Sections/3 Education}
+\input{Sections/1 Research Interests}
 \input{Sections/4 Research Experience}
 \input{Sections/5 Publications}
+\input{Sections/9 Technical Skills}
 \input{Sections/6 Presentations}
+\input{Sections/2 Experience}
 \input{Sections/7 Teaching}
 \input{Sections/8 Outreach}
-\input{Sections/9 Technical Skills}
 
 \end{document}
