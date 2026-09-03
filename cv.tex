@@ -272,22 +272,18 @@
 }
 
 % Presentation entry.
-% #1 = optional verified author list or explicitly labeled speaker credit
-% #2 = title
-% #3 = venue
-% #4 = location/type
-% #5 = date
-\newenvironment{presentation}[5][]
+% #1 = title
+% #2 = venue
+% #3 = location/host
+% #4 = date
+\newenvironment{presentation}[4]
 {%
-  \Needspace{5\baselineskip}%
+  \Needspace{4\baselineskip}%
   \par\noindent
   \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xr@{}}
-    \textbf{#2} & \mbox{#5} \\[-0.1em]
-    \ifstrempty{#1}{}{%
-      \multicolumn{2}{@{}X@{}}{{\small #1}} \\[-0.1em]
-    }%
+    \textbf{#1} & \mbox{#4} \\[-0.1em]
     \multicolumn{2}{@{}X@{}}{%
-      {\small\textit{#3} \enspace---\enspace #4}%
+      {\small\textit{#2}\ifstrempty{#3}{}{ \enspace---\enspace #3}}%
     }
   \end{tabularx}
   \par\vspace{0.1em}
@@ -431,14 +427,14 @@
 %----------------------------------------------------------------------------------------
 
 % Research-first ordering for PhD applications.
-\input{Sections/3 Education}
-\input{Sections/1 Research Interests}
-\input{Sections/4 Research Experience}
-\input{Sections/5 Publications}
-\input{Sections/9 Technical Skills}
-\input{Sections/6 Presentations}
-\input{Sections/2 Experience}
-\input{Sections/7 Teaching}
-\input{Sections/8 Outreach}
+\input{Sections/1 Education}
+\input{Sections/2 Research Interests}
+\input{Sections/3 Research Experience}
+\input{Sections/4 Publications}
+\input{Sections/5 Presentations}
+\input{Sections/6 Professional Appointments}
+\input{Sections/7 Courses Taught}
+\input{Sections/8 Technical Skills}
+\input{Sections/9 Outreach}
 
 \end{document}
