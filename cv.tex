@@ -71,18 +71,30 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage[
+  backend=biber,
   style=authoryear,
-  sorting=ynt,
-  minbibnames=3,
-  maxbibnames=3,
+  sorting=ydnt,
   giveninits=true,
-  uniquename=init,
+  maxbibnames=3,
+  minbibnames=3,
+  dashed=false,
   doi=true,
   url=false,
   isbn=false,
-  eprint=false,
-  date=year
+  eprint=false
 ]{biblatex}
+
+\addbibresource{ref.bib}
+
+% Display electronic article identifiers correctly
+\DeclareFieldFormat[article]{eid}{Article~#1}
+
+% Bold names annotated with "highlight" in the .bib file
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifitemannotation{highlight}{\textbf{#1}}{#1}}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifitemannotation{highlight}{\textbf{#1}}{#1}}
 
 %----------------------------------------------------------------------------------------
 % CLEAN CV-STYLE BIBLIOGRAPHY
