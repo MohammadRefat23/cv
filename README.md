@@ -20,7 +20,11 @@ The existing `biblatex` setup uses Biber. The project also requires
 - Removes the duplicated year from `CUNY Masters Graduation 2025`; the year remains in the date column.
 - Retains useful venue/location or host information for presentations while avoiding duplicated metadata.
 - Moves Technical Skills after Professional Appointments and Courses Taught.
-- Leaves the research-experience wording, overall template, website files, and automation files otherwise unchanged.
+- Preserves the corrected Jhelum chemical-abundance attribution and the
+  distinction between analyzing and generating the 1,000 starspot light curves.
+- Clarifies that the brown-dwarf analysis fit light curves derived from
+  three-dimensional atmospheric simulations, alongside Spitzer observations.
+- Leaves the overall template, website files, and automation files otherwise unchanged.
 
 ## Editing a research heading
 
@@ -45,7 +49,8 @@ rewriting each project's content.
 
 ## Validation status
 
-The complete project was compiled successfully with `latexmk -pdf cv.tex`, including
-Biber/biblatex and Font Awesome. The resulting CV is three pages. All three pages
-were rendered and visually checked after the edits; no clipping, overlap, broken
-glyphs, or orphaned Posters heading was found.
+The updated PDF was compiled locally with a temporary BibTeX fallback because
+Biber was unavailable in the validation environment. The delivered source retains
+the intended Biber setup for Overleaf. The resulting CV is three pages. All three
+pages were rendered and visually checked; no clipping, overlap, broken glyphs,
+or orphaned section heading was found.
