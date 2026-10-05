@@ -1,56 +1,35 @@
-# Mohammad Alvi Refat - Curriculum Vitae
+# Mohammad Alvi Refat - Physics PhD CV project
 
-Main file: `cv.tex`. Compile with PDFLaTeX and Biber, or run:
+Editable LaTeX source for a Physics PhD application CV, targeted to
+computational materials physics while retaining the broader computational
+physics framing. The documented research, publication, presentation, teaching,
+outreach, and technical-skills information is preserved.
+
+## Files
+
+- `cv.tex` is the main document.
+- `Sections/` contains the editable CV sections.
+- `ref.bib` contains the peer-reviewed article and master's thesis records.
+- `index.html`, `CNAME`, and `.github/workflows/` are the existing portfolio
+  site files and are included unchanged.
+
+## Compile
+
+Compile with PDFLaTeX and Biber, or run:
 
 ```sh
 latexmk -pdf cv.tex
 ```
 
-On Overleaf, set `cv.tex` as the main document and use PDFLaTeX.
-The existing `biblatex` setup uses Biber. The project also requires
-`fontawesome5`; retain the original package dependencies.
+On Overleaf, set `cv.tex` as the main document and select PDFLaTeX. The
+bibliography uses `biblatex` with the Biber backend.
 
-## Revision notes
+## Content notes
 
-- Uses the uploaded LaTeX project as the source of truth.
-- Keeps Education, Research Interests, Research Experience, Publications, Academic Presentations, Professional Appointments, Courses Taught, Technical Skills, and Outreach in that order.
-- Renumbers the section files so their filenames match their order in `cv.tex`.
-- Preserves the official presentation titles and the existing Talks/Posters subsections.
-- Removes presentation author lists and their associated layout code.
-- Removes the duplicated year from `CUNY Masters Graduation 2025`; the year remains in the date column.
-- Retains useful venue/location or host information for presentations while avoiding duplicated metadata.
-- Moves Technical Skills after Professional Appointments and Courses Taught.
-- Preserves the corrected Jhelum chemical-abundance attribution and the
-  distinction between analyzing and generating the 1,000 starspot light curves.
-- Clarifies that the brown-dwarf analysis fit light curves derived from
-  three-dimensional atmospheric simulations, alongside Spitzer observations.
-- Leaves the overall template, website files, and automation files otherwise unchanged.
-
-## Editing a research heading
-
-The command now takes six arguments in this order:
-
-```tex
-\researchentry
-  {Project title}
-  {Institution}
-  {Role}
-  {Advisor name}
-  {Dates}
-  {Output links}
-```
-
-For example, the master's project uses separate `{M.S. Thesis Researcher}` and
-`{Dr. Lucy Lu}` arguments. It displays `M.S. Thesis Researcher | Advisor: Dr. Lucy Lu`.
-Do not include `Advisor:` or the separator in either argument; the command adds
-them. Leave the role or output-links argument as `{}` when not needed. To change
-their display order globally later, edit the metadata row in `cv.tex` rather than
-rewriting each project's content.
-
-## Validation status
-
-The updated PDF was compiled locally with a temporary BibTeX fallback because
-Biber was unavailable in the validation environment. The delivered source retains
-the intended Biber setup for Overleaf. The resulting CV is three pages. All three
-pages were rendered and visually checked; no clipping, overlap, broken glyphs,
-or orphaned section heading was found.
+- Research interests foreground computational materials physics, molecular
+  materials, and atomistic simulation while describing molecular dynamics as
+  an interest rather than completed research experience.
+- C++ and LAMMPS are marked as foundational/introductory; Java is marked as
+  basic.
+- The source archive omits a precompiled PDF; compile the editable project to
+  produce one.
