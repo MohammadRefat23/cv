@@ -24,7 +24,7 @@
 %----------------------------------------------------------------------------------------
 % DOCUMENT DEFINITION
 %----------------------------------------------------------------------------------------
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,11pt]{article}
 
 %----------------------------------------------------------------------------------------
 % CORE PACKAGES
@@ -36,7 +36,7 @@
 % Graphics, color, and page geometry.
 \usepackage{graphicx}
 \usepackage[dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
+\usepackage[scale=0.92]{geometry}
 
 %----------------------------------------------------------------------------------------
 % TABLES, LISTS, AND LAYOUT UTILITIES
@@ -65,71 +65,6 @@
 \usepackage{refcount}
 \usepackage{needspace}
 
-%----------------------------------------------------------------------------------------
-% BIBLIOGRAPHY
-%----------------------------------------------------------------------------------------
-
-\usepackage[
-  backend=biber,
-  style=authoryear,
-  sorting=ydnt,
-  giveninits=true,
-  uniquename=init,
-  maxbibnames=3,
-  minbibnames=3,
-  dashed=false,
-  doi=true,
-  url=false,
-  isbn=false,
-  eprint=false
-]{biblatex}
-
-\addbibresource{ref.bib}
-
-% Display electronic article identifiers correctly
-\DeclareFieldFormat[article]{eid}{Article~#1}
-
-% Bold names annotated with "highlight" in the .bib file
-\renewcommand*{\mkbibnamegiven}[1]{%
-  \ifitemannotation{highlight}{\textbf{#1}}{#1}}
-
-\renewcommand*{\mkbibnamefamily}[1]{%
-  \ifitemannotation{highlight}{\textbf{#1}}{#1}}
-
-%----------------------------------------------------------------------------------------
-% CLEAN CV-STYLE BIBLIOGRAPHY
-%----------------------------------------------------------------------------------------
-
-% Remove fields that add clutter to a CV citation.
-\AtEveryBibitem{%
-  \clearfield{issn}%
-  \clearfield{publisher}%
-  \clearfield{urlyear}%
-  \clearfield{month}%
-}
-
-% Don't print "In:" before journal titles.
-\renewbibmacro{in:}{}
-
-% Paper and thesis titles.
-\DeclareFieldFormat[article]{title}{\mkbibquote{#1}}
-\DeclareFieldFormat[thesis]{title}{%
-  \iffieldundef{url}
-    {\mkbibquote{#1}}
-    {\href{\thefield{url}}{\mkbibquote{#1}}}%
-}
-
-% Italicize journal names normally.
-\DeclareFieldFormat[article]{journaltitle}{\mkbibemph{#1}}
-
-% Make DOI compact and clickable instead of printing the full doi.org URL.
-\DeclareFieldFormat{doi}{%
-  \href{https://doi.org/#1}{\textsc{doi}}%
-}
-
-% Compact spacing between entries.
-\setlength{\bibitemsep}{0.45em}
-\setlength{\bibparsep}{0pt}
 %----------------------------------------------------------------------------------------
 % HYPERLINKS
 %----------------------------------------------------------------------------------------
@@ -179,34 +114,7 @@
   [\titlerule]
 
 % Section spacing: left indent, space before, and space after.
-\titlespacing{\section}{0pt}{7pt}{4pt}
-
-%----------------------------------------------------------------------------------------
-% BIBLIOGRAPHY CONFIGURATION
-%----------------------------------------------------------------------------------------
-% Final vertical spacing between bibliography entries.
-\setlength{\bibitemsep}{1em}
-
-% Bold Mohammad Refat wherever the name appears in bibliography author lists.
-\renewcommand*{\mkbibnamefamily}[1]{%
-  \ifboolexpr{
-    test {\ifdefstring{\namepartfamily}{Refat}}
-    and
-    test {\ifdefstring{\namepartgiven}{Mohammad}}
-  }
-  {\mkbibbold{#1}}
-  {#1}%
-}
-
-\renewcommand*{\mkbibnamegiven}[1]{%
-  \ifboolexpr{
-    test {\ifdefstring{\namepartfamily}{Refat}}
-    and
-    test {\ifdefstring{\namepartgiven}{Mohammad}}
-  }
-  {\mkbibbold{#1}}
-  {#1}%
-}
+\titlespacing{\section}{0pt}{5pt}{3pt}
 
 %----------------------------------------------------------------------------------------
 % CUSTOM ENTRY COMMANDS AND ENVIRONMENTS
@@ -236,7 +144,7 @@
   \begin{itemize}[
     leftmargin=1em,
     label={--},
-    itemsep=3pt,
+    itemsep=2pt,
     topsep=0pt,
     parsep=0pt,
     partopsep=0pt
@@ -277,7 +185,7 @@
     }
   \end{tabularx}
 
-  \par\vspace{-0.4em}
+  \par\vspace{-0.5em}
 }
 
 % Presentation entry.
@@ -287,7 +195,7 @@
 % #4 = date
 \newenvironment{presentation}[4]
 {%
-  \Needspace{4\baselineskip}%
+  \Needspace{3\baselineskip}%
   \par\noindent
   \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xr@{}}
     \textbf{#1} & \mbox{#4} \\[-0.1em]
@@ -318,7 +226,7 @@
     topsep=0pt,
     partopsep=0pt,
     parsep=0pt,
-    itemsep=1.5pt
+    itemsep=1pt
   ]
 }
 {%
@@ -353,7 +261,7 @@
   \begin{itemize}[
     leftmargin=1.2em,
     label={--},
-    itemsep=2pt,
+    itemsep=1.5pt,
     topsep=2pt,
     parsep=0pt,
     partopsep=0pt
@@ -433,15 +341,16 @@
 % SECTIONS
 %----------------------------------------------------------------------------------------
 
-% Research-first ordering for PhD applications.
+% Research-first ordering for PhD applications. Skills sit beside the research
+% record so the final pages remain balanced and easy to scan.
 \input{Sections/1 Education}
 \input{Sections/2 Research Interests}
 \input{Sections/3 Research Experience}
+\input{Sections/8 Technical Skills}
 \input{Sections/4 Publications}
 \input{Sections/5 Presentations}
 \input{Sections/6 Professional Appointments}
 \input{Sections/7 Courses Taught}
-\input{Sections/8 Technical Skills}
 \input{Sections/9 Outreach}
 
 \end{document}

@@ -1,35 +1,16 @@
-# Mohammad Alvi Refat - Physics PhD CV project
+# Mohammad Alvi Refat - Academic CV
 
-Editable LaTeX source for a Physics PhD application CV, targeted to
-computational materials physics while retaining the broader computational
-physics framing. The documented research, publication, presentation, teaching,
-outreach, and technical-skills information is preserved.
-
-## Files
-
-- `cv.tex` is the main document.
-- `Sections/` contains the editable CV sections.
-- `ref.bib` contains the peer-reviewed article and master's thesis records.
-- `index.html`, `CNAME`, and `.github/workflows/` are the existing portfolio
-  site files and are included unchanged.
+Editable LaTeX source for a computational-physics PhD application CV. It
+foregrounds computational materials physics while accurately describing
+molecular dynamics as an area of interest rather than prior work.
 
 ## Compile
 
-Compile with PDFLaTeX and Biber, or run:
+Compile with PDFLaTeX:
 
 ```sh
 latexmk -pdf cv.tex
 ```
 
-On Overleaf, set `cv.tex` as the main document and select PDFLaTeX. The
-bibliography uses `biblatex` with the Biber backend.
-
-## Content notes
-
-- Research interests foreground computational materials physics, molecular
-  materials, and atomistic simulation while describing molecular dynamics as
-  an interest rather than completed research experience.
-- C++ and LAMMPS are marked as foundational/introductory; Java is marked as
-  basic.
-- The source archive omits a precompiled PDF; compile the editable project to
-  produce one.
+The publication and thesis references are maintained in
+`Sections/4 Publications.tex`, so no external bibliography run is needed.
