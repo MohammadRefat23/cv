@@ -24,7 +24,7 @@
 %----------------------------------------------------------------------------------------
 % DOCUMENT DEFINITION
 %----------------------------------------------------------------------------------------
-\documentclass[a4paper,11pt]{article}
+\documentclass[letterpaper,11pt]{article}
 
 %----------------------------------------------------------------------------------------
 % CORE PACKAGES
@@ -32,6 +32,9 @@
 % Basic URL handling and paragraph spacing.
 \usepackage{url}
 \usepackage{parskip}
+% Slightly tighter paragraph gap than the package default (about 6.8pt) so the
+% CV fits on three US Letter pages.
+\setlength{\parskip}{3.5pt plus 1pt}
 
 % Graphics, color, and page geometry.
 \usepackage{graphicx}
@@ -91,6 +94,12 @@
   \href{#1}{\textcolor{black}{#2}}%
 }
 
+% Visible hyperlink for presentation titles (ADS, Zenodo, video), in the same
+% dark blue as the [Code]/[Paper] tags. linkcolour is defined above.
+\newcommand{\titlelink}[2]{%
+  \href{#1}{\textcolor{linkcolour}{#2}}%
+}
+
 %----------------------------------------------------------------------------------------
 % GLOBAL TABLE AND WIDTH HELPERS
 %----------------------------------------------------------------------------------------
@@ -114,7 +123,13 @@
   [\titlerule]
 
 % Section spacing: left indent, space before, and space after.
-\titlespacing{\section}{0pt}{5pt}{3pt}
+% Every section uses this same gap below its rule; section files should not add
+% their own \vspace at the top (that is what made the rule cut through text).
+\titlespacing{\section}{0pt}{7pt}{5pt}
+
+% Subsection headings (e.g., "Conferences") inside a section.
+\titleformat{\subsection}{\normalsize\bfseries\raggedright}{}{0em}{}
+\titlespacing{\subsection}{0pt}{4pt}{2pt}
 
 %----------------------------------------------------------------------------------------
 % CUSTOM ENTRY COMMANDS AND ENVIRONMENTS
@@ -163,7 +178,7 @@
 % #5 = dates
 % #6 = optional research-output links
 \newcommand{\researchentry}[6]{%
-  \Needspace{8\baselineskip}%
+  \Needspace{5\baselineskip}%
   \par\noindent
 
   % Project title followed by optional research-output icons
@@ -206,6 +221,39 @@
   \par\vspace{-0.15em}
 }
 {}
+
+% Tight block of lines with its own paragraph spacing (#1, default 0pt).
+% The heading spacing above assumes the document's normal \parskip before the
+% first line, so add that back first; otherwise the rule overlaps the text.
+\newlength{\cvparskip}
+\AtBeginDocument{\setlength{\cvparskip}{\parskip}}
+\newenvironment{compact}[1][0pt]
+  {\par\vspace{\cvparskip}\begingroup\setlength{\parskip}{#1}}
+  {\par\endgroup}
+
+% Grouped presentation entry: one title, then one line per venue.
+% \prestitle{title}
+% \presvenue{type and venue (italic)}{location}{year}
+% \presauthors{author list}
+\newcommand{\prestitle}[1]{%
+  \Needspace{3\baselineskip}%
+  \par\noindent\textbf{#1}\par\nobreak\vspace{-0.1em}%
+}
+\newcommand{\presvenue}[3]{%
+  \noindent{\small\textit{#1}\ifstrempty{#2}{}{\enspace---\enspace #2}}\hfill{\small #3}\par\nobreak
+}
+\newcommand{\presauthors}[1]{%
+  \noindent{\small #1}\par\nobreak
+}
+\newcommand{\presgap}{\par\vspace{0.35em}}
+
+% Honors entry: bold name, plain detail, right-aligned date, optional note.
+\newcommand{\honor}[3]{%
+  \noindent\textbf{#1}\ifstrempty{#2}{}{, #2}\hfill #3\par
+}
+\newcommand{\honornote}[1]{%
+  \noindent{\small\textit{#1}}\par
+}
 
 % Teaching appointment entry.
 % #1 = position
@@ -322,18 +370,21 @@
 %----------------------------------------------------------------------------------------
 
 \begin{tabularx}{\linewidth}{@{}C@{}}
-  \Huge{Mohammad Alvi Refat} \\[7.5pt]
+  \Huge{Mohammad Alvi Refat} \\[6pt]
+  \small\textit{Computational physics \enspace\textperiodcentered\enspace
+  forward and inverse modeling \enspace\textperiodcentered\enspace
+  Bayesian inference} \\[4pt]
 
   \small
-  \href{https://mohammadrefat23.github.io/}{Website}
+  \href{https://mohammadrefat23.github.io/}{mohammadrefat23.github.io}
   \quad\textbar\quad
-  \href{https://scholar.google.com/citations?user=tXosG1EAAAAJ}{Google Scholar}
+  \href{https://github.com/MohammadRefat23}{GitHub: MohammadRefat23}
+  \quad\textbar\quad
+  \href{mailto:moref17@gmail.com}{moref17@gmail.com}
   \quad\textbar\quad
   \href{https://orcid.org/0000-0003-3149-4501}{ORCID}
   \quad\textbar\quad
-  \href{https://github.com/MohammadRefat23}{GitHub}
-  \quad\textbar\quad
-  \href{mailto:moref17@gmail.com}{moref17@gmail.com}
+  \href{https://scholar.google.com/citations?user=tXosG1EAAAAJ}{Google Scholar}
   \\
 \end{tabularx}
 
@@ -341,16 +392,17 @@
 % SECTIONS
 %----------------------------------------------------------------------------------------
 
-% Research-first ordering for PhD applications. Skills sit beside the research
-% record so the final pages remain balanced and easy to scan.
-\input{Sections/1 Education}
-\input{Sections/2 Research Interests}
-\input{Sections/3 Research Experience}
-\input{Sections/8 Technical Skills}
-\input{Sections/4 Publications}
-\input{Sections/5 Presentations}
-\input{Sections/6 Professional Appointments}
-\input{Sections/7 Courses Taught}
-\input{Sections/9 Outreach}
+% Research-first ordering for PhD applications: interests and education set the
+% context, then research, outputs, recognition, teaching, and skills.
+\input{Sections/01 Research Interests}
+\input{Sections/02 Education}
+\input{Sections/03 Research Experience}
+\input{Sections/04 Publications}
+\input{Sections/05 Presentations}
+\input{Sections/06 Honors and Awards}
+\input{Sections/07 Professional Appointments}
+\input{Sections/08 Courses Taught}
+\input{Sections/09 Technical Skills}
+\input{Sections/10 Outreach}
 
 \end{document}
