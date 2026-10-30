@@ -13,4 +13,4 @@ latexmk -pdf cv.tex
 ```
 
 The publication and thesis references are maintained in
-`Sections/4 Publications.tex`, so no external bibliography run is needed.
+`Sections/04 Publications.tex`, so no external bibliography run is needed.
