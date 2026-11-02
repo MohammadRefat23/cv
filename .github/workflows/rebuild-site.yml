@@ -1,0 +1,19 @@
+name: Rebuild website
+
+# When this repository changes, rebuild mohammadrefat23.github.io so the
+# site serves the newly compiled PDF.
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  rebuild-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start the website's build workflow
+        env:
+          GH_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
+        run: gh workflow run deploy.yml --repo MohammadRefat23/MohammadRefat23.github.io --ref main
