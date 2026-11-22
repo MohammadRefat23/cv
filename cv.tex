@@ -30,6 +30,8 @@
 % CORE PACKAGES
 %----------------------------------------------------------------------------------------
 % Basic URL handling and paragraph spacing.
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{url}
 \usepackage{parskip}
 % Slightly tighter paragraph gap than the package default (about 6.8pt) so the
@@ -81,7 +83,7 @@
 
 \hypersetup{
     colorlinks=true,
-    urlcolor=blue,
+    urlcolor=linkcolour,
     linkcolor=black,
     citecolor=black,
     pdftitle={Mohammad Alvi Refat -- Curriculum Vitae},
@@ -97,7 +99,7 @@
 % Visible hyperlink for presentation titles (ADS, Zenodo, video), in the same
 % dark blue as the [Code]/[Paper] tags. linkcolour is defined above.
 \newcommand{\titlelink}[2]{%
-  \href{#1}{\textcolor{linkcolour}{#2}}%
+  \href{#1}{\textcolor{black}{#2}}%
 }
 
 %----------------------------------------------------------------------------------------
@@ -178,25 +180,20 @@
 % #5 = dates
 % #6 = optional research-output links
 \newcommand{\researchentry}[6]{%
-  \Needspace{5\baselineskip}%
+  \Needspace{4\baselineskip}%
   \par\noindent
-
-  % Project title followed by optional research-output icons
-  \textbf{#1}%
-  \if\relax\detokenize{#6}\relax
-  \else
-    \hspace{0.3em}{\normalfont #6}%
-  \fi
-  \par\nobreak
-
-  \vspace{-0.15em}
-
-  \noindent
+  % Line 1: bold title + research-output tags, dates on the right.
+  % Line 2: institution | role | advisor, in italics.
   \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X
                                   >{\raggedleft\arraybackslash}l@{}}
-    \textit{#2} & \mbox{\textit{#5}} \\[-0.15em]
-    \multicolumn{2}{@{}X@{}}{%
-      \textit{\ifstrempty{#3}{}{#3\enspace\textbar\enspace}Advisor: #4}%
+    \textbf{#1}%
+    \if\relax\detokenize{#6}\relax
+    \else
+      \hspace{0.3em}{\normalfont #6}%
+    \fi
+    & \mbox{#5} \\[-0.15em]
+    \multicolumn{2}{@{}>{\raggedright\arraybackslash}p{\linewidth}@{}}{%
+      \textit{#2\enspace\textbar\enspace\ifstrempty{#3}{}{#3\enspace\textbar\enspace}Advisor: #4}%
     }
   \end{tabularx}
 
@@ -300,7 +297,7 @@
 {%
   \par\noindent
   \begin{tabularx}{\linewidth}{@{}Xr@{}}
-    \textbf{#1} & \emph{#3} \\
+    \textbf{#1} & #3 \\
     \textit{#2} &
   \end{tabularx}
 
