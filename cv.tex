@@ -242,6 +242,16 @@
 \newcommand{\presauthors}[1]{%
   \noindent{\small #1}\par\nobreak
 }
+% Two-line conference entry (agreed Nov 23, 2026):
+%   \presdated{title + tags}{year}            line 1, year on the right
+%   \presauthvenue{authors}{type and venue}{location}   line 2
+\newcommand{\presdated}[2]{%
+  \Needspace{3\baselineskip}%
+  \par\noindent\textbf{#1}\hfill #2\par\nobreak\vspace{-0.1em}%
+}
+\newcommand{\presauthvenue}[3]{%
+  \noindent{\small #1\enspace\textbar\enspace\textit{#2}\ifstrempty{#3}{}{, #3}}\par\nobreak
+}
 \newcommand{\presgap}{\par\vspace{0.35em}}
 
 % Honors entry: bold name, plain detail, right-aligned date, optional note.
