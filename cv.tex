@@ -32,6 +32,8 @@
 % Basic URL handling and paragraph spacing.
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+% Character protrusion and font expansion: fewer hyphenated line breaks, more even spacing.
+\usepackage{microtype}
 \usepackage{url}
 \usepackage{parskip}
 % Slightly tighter paragraph gap than the package default (about 6.8pt) so the
@@ -334,9 +336,10 @@
 \pagestyle{fancy}
 \fancyhf{}
 
-% Show the "Last updated" date only on the final page.
+% Show the "Last updated" date only on the first page, where readers of the
+% site's embedded PDF will see it.
 \fancyfoot[L]{%
-  \ifnum\value{page}=\getpagerefnumber{LastPage}\relax
+  \ifnum\value{page}=1\relax
     \footnotesize Last updated: \today
   \fi
 }
